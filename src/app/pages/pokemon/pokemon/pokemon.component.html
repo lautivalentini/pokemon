@@ -8,13 +8,26 @@
     >
 </div>
 
-<div class="pokemon-container">
-    <div class="pokemon">
-        <div class="pokemon-card" *ngFor="let pokemon of pokemones | filter:filterPokemon">
-            <div class="pokemon-img">
-                <img src="../../../../assets/fondo.jpg" alt="">
+    <div class="table-container">
+        <table class="table-pokemon">
+            <tr class="encabezado">
+                <th>Pokemon</th>
+                <th>Acción</th>
+            </tr>
+            <tr class="lines" *ngFor="let pokemon of pokemones | filter:filterPokemon">
+                <td><p>{{pokemon.name}}</p></td>
+                <td><button (click)="pokemonSelected(pokemon)" >Ver Más</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card-container-pokemon">
+        <div *ngFor="let poke of pokes" class="card-pokemon-list">
+            <div class="img-pokemon">
+                <img src="{{poke.sprites.front_default}}" alt="Imagen Pokemon">
             </div>
-            <p>{{pokemon.name}}</p>
+            <div class="name-pokemon">
+                <p>{{poke.name}}</p>
+            </div>
         </div>
     </div>
-</div>

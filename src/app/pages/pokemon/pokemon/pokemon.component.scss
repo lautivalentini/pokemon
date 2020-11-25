@@ -3,6 +3,7 @@
     justify-content: center;
     margin: 25px 0;
 }
+
 .input-container input {
     width: 90%;
     max-width: 300px;
@@ -11,35 +12,77 @@
     border-left: none;
     border-right: none;
 }
-.pokemon {
+
+.table-container::-webkit-scrollbar {
+    display: none;
+}
+
+.table-container {
+    overflow-y: scroll;
+    width: 95%;
+    max-width: 600px;
+    height: 50vh;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
-.pokemon-card {
-    background-color: #F6DC01 ;
-    width: 60%;
-    max-width: 200px;
-    margin: 10px 10px;
-    text-align: center;
+
+.table-pokemon {
+    margin: auto;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px silver;
+    width: 95%;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    overflow: scroll;
 }
-.pokemon-img img {
-    width: 100%;
+
+.encabezado th {
+    background-color: #ff9d00;
+    padding: 10px;
+    width: 100px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.lines td {
+    text-align: center;
+}
+
+.lines td p {
+    margin: 10px 0;
+    background-color: #fff242;
+    width: 90%;
+    margin: auto;
+    height: 40px;
+    font-size: 1.1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    line-height: 35px;
+}
+
+.lines td button {
+    margin: 10px 0;
+    border: none;
+    background-color: #42a4ff;
+    height: 40px;
+    width: 90%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-.pokemon-card p {
-    padding: 15px;
-    font-weight: bold;
+
+.card-pokemon-list {
+    width: 60%;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
 }
 
-@media screen and (min-width: 1200px) {
-    .pokemon-container {
-        width: 1200px;
-        margin: auto;
-    }
+.img-pokemon img {
+    width: 100px;
+}
+
+.name-pokemon p {
+    padding: 20px;
+    font-weight: bold;
 }

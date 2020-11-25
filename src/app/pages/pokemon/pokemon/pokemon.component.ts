@@ -14,6 +14,8 @@ export class PokemonComponent implements OnInit {
 
   locationes = [];
 
+  pokes = [];
+
   filterPokemon = '';
 
   constructor(private pokemonService: ListPokemonService) { }
@@ -27,15 +29,24 @@ export class PokemonComponent implements OnInit {
   listPokemon() {
     this.pokemonService.getPokemon().subscribe(res => {
       this.pokemones = res.results;
+      console.log(res);
     }, err => {
       console.log(err);
     });
   }
 
+  pokemonSelected(pokemon) {
+    this.pokemonService.selectPokemon(pokemon).subscribe(res => {
+      console.log(res);
+      this.pokes = Array(res);
+    }, err => {
+      console.log(err);
+    })
+  }
+
   listAbility() {
     this.pokemonService.getPokemonAbility().subscribe(res => {
       this.abilities = res.results;
-      console.log(res);
     }, err => {
       console.log(err);
     })
