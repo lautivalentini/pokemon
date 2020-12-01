@@ -16,20 +16,22 @@ export class PokemonComponent implements OnInit {
 
   pokes = [];
 
+  pokesFav = [];
+
+  star: boolean = false;
+  starContainer: boolean = false;
+
   filterPokemon = '';
 
   constructor(private pokemonService: ListPokemonService) { }
 
   ngOnInit(): void {
     this.listPokemon();
-    this.listAbility();
-    this.listLocation();
   }
 
   listPokemon() {
     this.pokemonService.getPokemon().subscribe(res => {
       this.pokemones = res.results;
-      console.log(res);
     }, err => {
       console.log(err);
     });
@@ -44,20 +46,20 @@ export class PokemonComponent implements OnInit {
     })
   }
 
-  listAbility() {
-    this.pokemonService.getPokemonAbility().subscribe(res => {
-      this.abilities = res.results;
+  addPokemon(pokemon) {
+    this.pokemonService.selectPokemon(pokemon).subscribe(res => {
+      this.pokesFav.push(res);
     }, err => {
       console.log(err);
     })
   }
 
-  listLocation() {
-    this.pokemonService.getPokemonLocation().subscribe(res => {
-      this.locationes = res.results;
-    }, err => {
-      console.log(err);
-    })
+  deletePokemon(pokemon) {
+    this.pokesFav.splice(pokemon, 1);
+  }
+
+  deleteAll(pokemon) {
+    this.pokesFav.splice(pokemon);
   }
 
 }

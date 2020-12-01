@@ -1,4 +1,19 @@
 
+<div class="star">
+    <i (click)="star = true; starContainer = true;" *ngIf="!star" class="far fa-star"></i>
+    <i (click)="star = false; starContainer = false;" *ngIf="star" class="fas fa-star"></i>
+</div>
+
+<div *ngIf="starContainer" class="container-stair">
+    <div *ngFor="let pokeFav of pokesFav" class="pokemon-fav">
+        <p>{{pokeFav.name}}</p>
+        <div class="button-delete">
+            <button id="button" (click)="deletePokemon(pokemon);">Eliminar</button>
+        </div>
+    </div>
+    <small (click)="deleteAll(pokemon)">Eliminar todo</small>
+</div>
+
 <div class="input-container">
     <input
     type="text" 
@@ -16,7 +31,12 @@
             </tr>
             <tr class="lines" *ngFor="let pokemon of pokemones | filter:filterPokemon">
                 <td><p>{{pokemon.name}}</p></td>
-                <td><button (click)="pokemonSelected(pokemon)" >Ver Más</button></td>
+                <td class="buttons-click">
+                    <button id="more" (click)="pokemonSelected(pokemon)" >Ver Más</button>
+                    <button id="fav" (click)="addPokemon(pokemon)">
+                        <i class="far fa-star"></i>
+                    </button>
+                </td>
             </tr>
         </table>
     </div>
